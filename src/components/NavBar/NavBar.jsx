@@ -4,10 +4,10 @@ import CartWidget from '../CartWidget/CartWidget'
 function NavBar() {
   return (
     <div className="navbar">
-        <p>BoS</p>
-        <p>Enlace 1</p>
-        <p>Enlace 2</p>
-        <p>Enlace 3</p>
+        <a href="#">BoS</a>
+        <a href="#">Enlace 1</a>
+        <a href="#">Enlace 2</a>
+        <a href="#">Enlace 3</a>
         <CartWidget/>
     </div>
   )
