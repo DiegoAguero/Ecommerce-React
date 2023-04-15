@@ -1,0 +1,13 @@
+img{
+    height: auto;
+}
+.fila{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+.fila .card{
+    margin: 10px;
+}

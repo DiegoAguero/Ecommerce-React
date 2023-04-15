@@ -1,7 +1,14 @@
+*{
+  margin: 0;
+  padding: 0;
+  background-color: rgb(31, 28, 28);
+  font-family: 'Courier New', Courier, monospace;
+  color: whitesmoke;
+}
 body{
   font-family: 'Courier New', Courier, monospace;
-  background: rgb(255,0,0);
-  background: linear-gradient(166deg, rgba(255,0,0,1) 0%, rgba(55,1,1,1) 100%);
-  background-repeat: no-repeat;
-  height: 100vh;
+  background-color: rgb(17, 15, 15);
+  /* background: linear-gradient(166deg, rgb(187, 41, 41) 0%, rgba(55,1,1,1) 100%); */
+  /* background-repeat: no-repeat; */
+  /* height: 100vh; */
 }

@@ -1,15 +1,18 @@
 import "./NavBar.css"
+import Logo from '../../images/logo.png'
 import React from 'react'
 import CartWidget from '../CartWidget/CartWidget'
 function NavBar() {
   return (
-    <div className="navbar">
-        <a href="#">BoS</a>
-        <a href="#">Enlace 1</a>
-        <a href="#">Enlace 2</a>
-        <a href="#">Enlace 3</a>
+    <nav>
+      <img src={Logo} alt="logo"/>
+      <ul className="navbar">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Products</a></li>
+        <li><a href="#">Contact</a></li>
         <CartWidget/>
-    </div>
+      </ul>
+    </nav>
   )
 }
 
