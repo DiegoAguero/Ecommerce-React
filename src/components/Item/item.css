@@ -12,4 +12,8 @@
 .img{
     filter: brightness(1.1);
     mix-blend-mode: multiply;
+    background-color: rgb(300, 300, 300);
+}
+.border{
+    border: 10px solid white;
 }

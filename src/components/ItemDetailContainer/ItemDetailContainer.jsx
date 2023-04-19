@@ -19,7 +19,7 @@ function ItemDetailContainer() {
             })
     }, [itemId])
   return (
-    <section>
+    <>
         {
             loading?
             <div className="spinner">
@@ -29,8 +29,7 @@ function ItemDetailContainer() {
             </div>
             :<ItemDetail {...item}/>
         }
-    </section>
-
+    </>
   );
 }
 

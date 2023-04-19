@@ -3,11 +3,9 @@ import {Card, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './item.css'
 function Item({id, description, price, image, category}) {
-  function addToCart(id){
-    console.log(`Añadido al carrito, id: ${id}`)
-  }
+
   return (
-    <Card style={{ width: '18rem' }}>
+    <Card style={{ width: '18rem' }} className='border'>
       <Card.Img variant="top" src={image} className='img'/>
       <Card.Body className='contenedor'>
           <Card.Text>

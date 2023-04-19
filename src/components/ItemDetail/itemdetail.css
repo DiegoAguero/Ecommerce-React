@@ -1,0 +1,19 @@
+.containerr{
+    display: flex;
+    justify-content: center;
+}
+.imageContainer{
+    width: 500px;
+}
+.imageContainer img{
+    width: 100%;
+    margin-left: 20px;
+}
+.image{
+    background-color: rgb(300, 300, 300);
+}
+.filas{
+   margin: 30px;
+   align-self: center;
+   font-size: 23px;
+}

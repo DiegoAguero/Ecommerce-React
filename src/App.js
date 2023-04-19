@@ -6,6 +6,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import NavBar from './components/NavBar/NavBar';
 import ItemCount from './components/ItemCount/ItemCount'
 import Pika from './components/Pika/Pika';
+import Home from './components/Home/Home';
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,7 +19,8 @@ function App() {
         <Router>
           <NavBar/>
           <Routes>
-            <Route path='/' element={<ItemListContainer/>}/>
+            <Route path='/' element={<Home/>}/>
+            <Route path='/products' element={<ItemListContainer/>}/>
             <Route path='/products/:categoryId' element={<ItemListContainer/>}/>
             <Route path='/detail/:itemId' element={<ItemDetailContainer/>}/>
             <Route path='/counter' element={<ItemCount/>}/>
