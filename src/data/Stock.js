@@ -14,6 +14,7 @@ const stock = [
     price: 50,
     image: DAYD,
     category: "collab",
+    stock: 20,
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const stock = [
     price: 50,
     image: DSSH,
     category: "collab",
+    stock: 20,
   },
   {
     id: 3,
@@ -28,6 +30,7 @@ const stock = [
     price: 100,
     image: DSSJ,
     category: "collab",
+    stock: 20,
   },
   {
     id: 4,
@@ -35,6 +38,7 @@ const stock = [
     price: 55,
     image: DSSMH,
     category: "collab",
+    stock: 20,
   },
   {
     id: 5,
@@ -42,6 +46,7 @@ const stock = [
     price: 35,
     image: DSSMJ,
     category: "collab",
+    stock: 20,
   },
   {
     id: 6,
@@ -49,6 +54,7 @@ const stock = [
     price: 35,
     image: DSAH,
     category: "collab",
+    stock: 20,
   },
   {
     id: 7,
@@ -56,6 +62,7 @@ const stock = [
     price: 35,
     image: DSAJ,
     category: "collab",
+    stock: 20,
   },
   {
     id: 8,
@@ -63,6 +70,7 @@ const stock = [
     price: 35,
     image: DH,
     category: "official",
+    stock: 20,
   },
   {
     id: 9,
@@ -70,6 +78,7 @@ const stock = [
     price: 35,
     image: DJ,
     category: "official",
+    stock: 20,
   },
 ];
 

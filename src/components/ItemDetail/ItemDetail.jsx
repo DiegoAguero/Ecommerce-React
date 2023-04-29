@@ -1,9 +1,33 @@
-import React from 'react'
+import React, {useContext, useState} from 'react'
 import {Button} from 'react-bootstrap'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import ItemCount from '../ItemCount/ItemCount'
 import './itemdetail.css'
-function ItemDetail({id, description, price, category, image}) {
+import CartContext from '../context/CartContext'
+function ItemDetail({id, name, description, price, category, image, stock}) {
+  const navigate = useNavigate()
+  const goBack = ()=>{
+    navigate(-1)
+  }
+  
+//Emepzamos las funcionalidades del contexto
+  const {addToCart} = useContext(CartContext)
+  const [counter, setCounter] = useState(0)
+  const sumarAlCarrito = ()=>{
+    const newItem = {
+      id,
+      name,
+      description,
+      price,
+      category,
+      image,
+      stock,
+      counter,
+    }
+    console.log(newItem)
+    addToCart(newItem)
+  }
+  
   return (
     // Mejorar esto, no quiero utilizar un card, quiero algo mejor que esta en el figma de la zapatilla de nike
     <div className='containerr'>
@@ -11,6 +35,7 @@ function ItemDetail({id, description, price, category, image}) {
         <img src={image} className='image'/>
       </div>
       <div className='filas'>
+        <p>{name}</p>
         <p>{description}</p>
         <p>${price}</p>
         <label htmlFor="talles">Talles </label>
@@ -20,23 +45,12 @@ function ItemDetail({id, description, price, category, image}) {
           <option value="l">L</option>
           <option value="xl">XL</option>
         </select>
-        <ItemCount/>
-        <Button variant="outline-danger">Añadir al carrito</Button>
+        <ItemCount max={stock} modify={setCounter} cantidad={counter}/>
+        <Button variant="outline-danger" onClick={sumarAlCarrito}>Añadir al carrito</Button>
+        <Button variant='outline-danger' onClick={goBack}>Volver hacia atras</Button>
+        <Link to='/cartscreen'><Button variant='outline-danger'>Ir al carrito</Button></Link>
       </div>
     </div>
-    // <Card style={{ width: '18rem' }}>
-    // <Card.Img variant="top" src={image} className='img'/>
-    // <Card.Body className='contenedor'>
-    //     <Card.Text>
-    //       {description}
-    //     </Card.Text>
-    //     <Card.Title>${price}</Card.Title>
-    //     <Card.Title>{category}</Card.Title>
-    //     <Link to={`/detail/${id}`}>
-    //       <Button variant="outline-danger" className='button'>Añadir al carrito</Button>
-    //     </Link>
-    // </Card.Body>
-    // </Card>
   )
 }
 

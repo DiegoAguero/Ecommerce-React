@@ -1,0 +1,34 @@
+.footer{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    height: 300px;
+    background-color: whitesmoke;
+    margin: 10px;
+    border-radius: 15px;
+}
+.footer li{
+    background-color: whitesmoke;
+    color: black;
+}
+.footer div{
+    background-color: whitesmoke;
+}
+.footer ul{
+    list-style-type: none;
+    background-color: whitesmoke;
+}
+div > ul > li{
+    margin: 40px;
+}
+.copyright p{
+    background-color: whitesmoke;
+    color: black;
+    transform: translate(10px, 260px);
+}
+
+.facebook > svg{
+    border: none;
+    border-radius: 20px;
+}

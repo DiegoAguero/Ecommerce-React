@@ -2,7 +2,7 @@ import React from 'react'
 import {Card, Button} from 'react-bootstrap'
 import { Link } from 'react-router-dom'
 import './item.css'
-function Item({id, description, price, image, category}) {
+function Item({id, name, description, price, image, category}) {
 
   return (
     <Card style={{ width: '18rem' }} className='border'>

@@ -1,33 +1,66 @@
 import React, {useState, useEffect} from 'react';
-import getProducts from '../../helpers/getProducts';
+// import getProducts from '../../helpers/getProducts';
+import { getFirestore } from '../../firebase/config';
 import ItemList from '../ItemList/ItemList'
 import {Spinner} from 'react-bootstrap'
 import './itemlistcontainer.css'
 import { useParams } from 'react-router-dom';
+
 function ItemListContainer() {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(false)
   const {categoryId} = useParams()
 //Empezamos el inicio montaje, con un loading en true
-  useEffect(()=>{
+// setLoading(true)
+//Como es promesa, tiene que ir then
+// getProducts()
+  // .then((res)=>{
+  //   if(categoryId){
+  //     setItems(res.filter(prod=> prod.category === categoryId))
+  //   }else{
+  //     setItems(res)
+  //   }
+  // })
+  // .catch((error)=> console.log(error))
+  // //con finally terminamos el proceso
+  // .finally(()=>{setLoading(false)})
+  useEffect(()=>{ 
     setLoading(true)
-  //Como es promesa, tiene que ir then
-    getProducts()
+    const db = getFirestore();
+    const products = db.collection('products')
+
+    if(categoryId){
+      const filtrado = products.where('category', '==', categoryId)
+      filtrado.get()
       .then((res)=>{
-        if(categoryId){
-          setItems(res.filter(prod=> prod.category === categoryId))
-        }else{
-          setItems(res)
-        }
+        const newItem = res.docs.map((doc)=>{
+          return{id: doc.id, ...doc.data()}
+        })
+        setItems(newItem)
       })
-      .catch((error)=> console.log(error))
-      //con finally terminamos el proceso
-      .finally(()=>{setLoading(false)})
-  }, [categoryId])
+        .catch((error)=>console.log(error))
+        .finally(setLoading(false))
+      
+    }else{
+      products.get()
+      .then((res)=>{
+        const newItem = res.docs.map((doc)=>{
+          return {id: doc.id, ...doc.data()}
+        })
+        console.table(newItem)
+        setItems(newItem)
+      })
+      .catch((error)=>console.log(error)) 
+      .finally(()=>{
+        setLoading(false)
+      })  
+    }
+
+
+  }, [categoryId, setLoading])
   return (
     <div>
         {
-          //Poniendo un parentesis en vez de una llave en el map, se hace un return implicito
           loading ?  
           <div className='spinner'>
             <Spinner animation="border" role="status">

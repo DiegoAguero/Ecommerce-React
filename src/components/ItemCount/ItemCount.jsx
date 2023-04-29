@@ -1,30 +1,32 @@
-import React, { useState } from 'react'
+import React from 'react'
 
-function ItemCount() {
+function ItemCount({max, cantidad, modify}) {
 
-  const [counter, setCounter] = useState(0)
+  // const [counter, setCounter] = useState(0)
 
   const sumar= () =>{
-    setCounter(counter + 1)
-  }
-
-  const restar = () =>{
-    if(counter > 0){
-      setCounter(counter - 1)
+    if (cantidad < max){
+      modify(cantidad + 1)
     }
   }
 
-  const resetear = () =>{
-    setCounter(0)
+  const restar = () =>{
+    if(cantidad > 0){
+      modify(cantidad - 1)
+    }
   }
+
+  // const resetear = () =>{
+  //   setCounter(0)
+  // }
 
   return (
     <>
-      <h4>Contador: {counter}</h4>
+      <h4>Contador: {cantidad}</h4>
       <div>
         <button onClick={sumar}>➕</button>
         <button onClick={restar}>➖</button>
-        <button onClick={resetear}>⏪</button>
+        {/* <button onClick={resetear}>⏪</button> */}
       </div>
     </>
   )

@@ -16,7 +16,7 @@ function NavBar() {
         <li><Link to="/products/collab">Collab</Link></li>
         <li><Link to="/products">Products</Link></li>
         <li><Link to="/contact">Contact</Link></li>
-        <li><Link to="/cart"><CartWidget/></Link></li>
+        <li><Link to="/cartscreen"><CartWidget/></Link></li>
       </ul>
     </nav>
   )
