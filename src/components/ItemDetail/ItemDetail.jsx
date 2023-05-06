@@ -23,13 +23,12 @@ function ItemDetail({id, name, description, price, category, image, stock}) {
       image,
       stock,
       counter,
-    }
+    } 
     console.log(newItem)
     addToCart(newItem)
   }
   
   return (
-    // Mejorar esto, no quiero utilizar un card, quiero algo mejor que esta en el figma de la zapatilla de nike
     <div className='containerr'>
       <div className='imageContainer'>
         <img src={image} className='image'/>

@@ -28,7 +28,3 @@ div > ul > li{
     transform: translate(10px, 260px);
 }
 
-.facebook > svg{
-    border: none;
-    border-radius: 20px;
-}

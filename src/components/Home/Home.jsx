@@ -4,7 +4,7 @@ function Home() {
   return (
     <>
         <main className='home'>
-          <iframe width="660" height="350" src="https://www.youtube.com/embed/vyO5ukNpg5c?autoplay=1&mute=1&loop=1" title="Dynasty" frameborder="0"></iframe>
+          <iframe width="660" height="350" src="https://www.youtube.com/embed/vyO5ukNpg5c?autoplay=1&mute=1&loop=1" title="BDS"></iframe>
           <p>New single "BETWEEN DEATH AND DREAMS" out!</p>
         </main>
 

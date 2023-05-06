@@ -14,7 +14,9 @@ function Checkout() {
     const [numero, setNumero] = useState('')
 
     const handleSubmit = (e) =>{
+        e.target.reset()
         e.preventDefault()
+        // e.target.reset()
         console.log("Nombre", nombre)
         console.log("Apellido", apellido)
         console.log("Email", email)
@@ -40,7 +42,7 @@ function Checkout() {
         .then((res)=>{
             Swal.fire({
                 icon: 'success',
-                title: 'La compra ha sido realizada correctamente. GG',
+                title: 'La compra ha sido realizada correctamente.',
                 text: `Guarde su numero de compra ${res.id}`,
                 willClose: ()=>{
                     vaciarCarrito()
@@ -48,7 +50,7 @@ function Checkout() {
               })
         })
         .finally(()=>{
-            console.log("operacion terminada GG")
+            console.log("operacion terminada")
         })
 
 
@@ -67,7 +69,7 @@ function Checkout() {
 
   return (
     <div>
-      <h3>Terminar compra</h3>
+      <h3 className="text-center">Terminar compra</h3>
       <hr />
       <form onSubmit={handleSubmit} className="container mt-3">
         <div className="form-group">
@@ -89,8 +91,10 @@ function Checkout() {
             <label htmlFor="numero">Numero</label>
             <input type="text" className="form-control" onChange={(e =>{setNumero(e.target.value)})}value={numero}/>
         </div>
-        <Button type="submit" variant="success">Finalizar compra</Button>
-        <Link to='/cartscreen'><Button variant='outline-danger'>Volver al carrito</Button></Link>
+        <div className="mt-3">
+            <Button type="submit" variant="success">Finalizar compra</Button>
+            <Link to='/cartscreen'><Button variant='outline-danger'>Volver al carrito</Button></Link>
+        </div>
       </form>
     </div>
   );

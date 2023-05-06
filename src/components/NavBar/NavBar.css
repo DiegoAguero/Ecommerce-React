@@ -17,3 +17,6 @@ nav img{
     margin: 0 auto;
     width: 15%;
 }
+.dropdown-item:hover{
+    background-color: #212529;
+}

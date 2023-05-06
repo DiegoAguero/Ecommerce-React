@@ -18,29 +18,10 @@ import {CartProvider} from './components/context/CartContext';
 import CartScreen from './components/CartScreen/CartScreen';
 import Footer from './components/Footer/Footer';
 import Checkout from './components/Checkout/Checkout';
+import Contact from './components/Contact/Contact';
 
 function App() {
-  // const [carrito, setCarrito] = useState([])
-  // console.log(carrito)
 
-  // const addToCart = (item) =>{
-  //   setCarrito([...carrito, item])
-  //   console.log(addToCart)
-  // }
-  
-  // const calcularCantidad = () =>{
-  //   return carrito.reduce((acc, prod) => acc + prod.counter, 0)
-  // }
-  // const precioTotal = ()=>{
-  //   return carrito.reduce((acc, prod) => acc + prod.price * prod.counter, 0)
-  // }
-  // const removerItem = (itemId)=>{
-  //   const newCart = carrito.filter((prod)=> prod.id !== itemId)
-  //   setCarrito(newCart)
-  // }
-  // const vaciarCarrito = ()=>{
-  //   setCarrito([])
-  // }
   return (
     <CartProvider>
       <div className='App'>
@@ -53,7 +34,8 @@ function App() {
             <Route path='/detail/:itemId' element={<ItemDetailContainer/>}/>
             <Route path='/cartscreen' element={<CartScreen/>}/>
             <Route path='/checkout' element={<Checkout/>}/>
-            {/* <Route path='/pika' element={<Pika/>}/> */}
+            <Route path='/contact' element={<Contact/>}/>
+            {/* Añadir contacto y linkearlo con firebase para generar 'contactos' */}
             <Route path='*' element={<Navigate to='/'/>}/>
           </Routes>
           <Footer/>

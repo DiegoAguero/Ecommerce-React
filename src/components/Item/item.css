@@ -1,6 +1,7 @@
 .contenedor{
     position: relative;
     height: 200px;
+    background-color: rgb(31, 28, 28);
 }
 .button{
     position: absolute;
