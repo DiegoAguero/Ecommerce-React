@@ -1,78 +1,60 @@
-import React, {useState, useEffect} from 'react';
-// import getProducts from '../../helpers/getProducts';
-import { getFirestore } from '../../firebase/config';
-import ItemList from '../ItemList/ItemList'
-import {Spinner} from 'react-bootstrap'
-import './itemlistcontainer.css'
-import { useParams } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { getFirestore } from "../../firebase/config";
+import ItemList from "../ItemList/ItemList";
+import { Spinner } from "react-bootstrap";
+import "./itemlistcontainer.css";
+import { useParams } from "react-router-dom";
 
 function ItemListContainer() {
-  const [items, setItems] = useState([])
-  const [loading, setLoading] = useState(false)
-  const {categoryId} = useParams()
-//Empezamos el inicio montaje, con un loading en true
-// setLoading(true)
-//Como es promesa, tiene que ir then
-// getProducts()
-  // .then((res)=>{
-  //   if(categoryId){
-  //     setItems(res.filter(prod=> prod.category === categoryId))
-  //   }else{
-  //     setItems(res)
-  //   }
-  // })
-  // .catch((error)=> console.log(error))
-  // //con finally terminamos el proceso
-  // .finally(()=>{setLoading(false)})
-  useEffect(()=>{ 
-    setLoading(true)
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const { categoryId } = useParams();
+  useEffect(() => {
+    setLoading(true);
     const db = getFirestore();
-    const products = db.collection('products')
+    const products = db.collection("products");
 
-    if(categoryId){
-      const filtrado = products.where('category', '==', categoryId)
-      filtrado.get()
-      .then((res)=>{
-        const newItem = res.docs.map((doc)=>{
-          return{id: doc.id, ...doc.data()}
+    if (categoryId) {
+      const filtrado = products.where("category", "==", categoryId);
+      filtrado
+        .get()
+        .then((res) => {
+          const newItem = res.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          });
+          setItems(newItem);
         })
-        setItems(newItem)
-      })
-        .catch((error)=>console.log(error))
-        .finally(setLoading(false))
-      
-    }else{
-      products.get()
-      .then((res)=>{
-        const newItem = res.docs.map((doc)=>{
-          return {id: doc.id, ...doc.data()}
+        .catch((error) => console.log(error))
+        .finally(setLoading(false));
+    } else {
+      products
+        .get()
+        .then((res) => {
+          const newItem = res.docs.map((doc) => {
+            return { id: doc.id, ...doc.data() };
+          });
+          console.table(newItem);
+          setItems(newItem);
         })
-        console.table(newItem)
-        setItems(newItem)
-      })
-      .catch((error)=>console.log(error)) 
-      .finally(()=>{
-        setLoading(false)
-      })  
+        .catch((error) => console.log(error))
+        .finally(() => {
+          setLoading(false);
+        });
     }
-
-
-  }, [categoryId, setLoading])
+  }, [categoryId, setLoading]);
   return (
     <div>
-        {
-          loading ?  
-          <div className='spinner'>
-            <Spinner animation="border" role="status">
-              <span className="visually-hidden">Cargando...</span>
-            </Spinner>
-          </div> 
-
-          : <ItemList productos={items}/>
-        }
+      {loading ? (
+        <div className="spinner">
+          <Spinner animation="border" role="status">
+            <span className="visually-hidden">Cargando...</span>
+          </Spinner>
+        </div>
+      ) : (
+        <ItemList productos={items} />
+      )}
     </div>
-  )
+  );
 }
 
-export default ItemListContainer
-
+export default ItemListContainer;
