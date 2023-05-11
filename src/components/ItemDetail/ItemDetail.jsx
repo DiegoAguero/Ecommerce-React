@@ -46,13 +46,6 @@ function ItemDetail({ id, name, description, price, category, image, stock }) {
         <p>{name}</p>
         <p>{description}</p>
         <p>${price}</p>
-        <label htmlFor="talles">Talles </label>
-        <select name="talles" id="" style={{ margin: 10 }}>
-          <option value="s">S</option>
-          <option value="m">M</option>
-          <option value="l">L</option>
-          <option value="xl">XL</option>
-        </select>
         <p>Stock: {stock}</p>
         <ItemCount max={stock} modify={setCounter} cantidad={counter} />
         <div>

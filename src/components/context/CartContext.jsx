@@ -11,7 +11,6 @@ export const CartProvider = ({children})=>{
     useEffect(()=>{
         localStorage.setItem('carrito', JSON.stringify(carrito))
     }, [carrito])
-    // console.log(carrito)
     
     const addToCart = (item) =>{
       const existe = carrito.some((prod)=> prod.id === item.id)
@@ -37,7 +36,6 @@ export const CartProvider = ({children})=>{
           timer: 1500
         })
       }
-      console.log(item)
 
     }
     
