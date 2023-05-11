@@ -16,10 +16,6 @@ function Checkout() {
   const handleSubmit = (e) => {
     e.target.reset();
     e.preventDefault();
-    console.log("Nombre", nombre);
-    console.log("Apellido", apellido);
-    console.log("Email", email);
-    console.log("Numero", numero);
     const orden = {
       buyer: {
         email,
@@ -77,6 +73,7 @@ function Checkout() {
               setNombre(e.target.value);
             }}
             value={nombre}
+            required
           />
         </div>
 
@@ -89,6 +86,7 @@ function Checkout() {
               setApellido(e.target.value);
             }}
             value={apellido}
+            required
           />
         </div>
 
@@ -101,6 +99,7 @@ function Checkout() {
               setEmail(e.target.value);
             }}
             value={email}
+            required
           />
         </div>
 
@@ -113,6 +112,7 @@ function Checkout() {
               setNumero(e.target.value);
             }}
             value={numero}
+            required
           />
         </div>
         <div className="mt-3">

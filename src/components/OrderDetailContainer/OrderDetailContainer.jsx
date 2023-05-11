@@ -1,12 +1,9 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import {getFirestore} from '../../firebase/config'
 import 'firebase/firestore'
 import Swal from 'sweetalert2'
 import OrderDetail from '../OrderDetail/OrderDetail'
-import ItemList from '../ItemList/ItemList'
 function OrderDetailContainer() {
-    // const [email, setEmail] = useState('')
-    // const [nombre, setNombre] = useState('')
     const [loading, setLoading] = useState(false)
     const [orderId, setOrderId] = useState('')
     const [item, setItem] = useState()
@@ -14,8 +11,6 @@ function OrderDetailContainer() {
     const handleSubmit =  (e) =>{
         const db = getFirestore()
         const orders = db.collection('orders').doc(orderId)
-        // hacer bien la query (SOLUCIONADO AHORA SOLUCIONAR POR QUE CARAJO NO ME DEVUELVE EL ID DEL ITEM)
-        // const filter = orders.where('item', '==', orderId)
         orders.get()
         .then((ref)=>{
             if(ref.exists){
@@ -42,8 +37,6 @@ function OrderDetailContainer() {
         <>
             {
                 loading?
-                // totalPrice={total}
-                    // <ItemList productos={item}/>
                     <OrderDetail item={item} totalPrice={total}/>
                 :
                 <div>

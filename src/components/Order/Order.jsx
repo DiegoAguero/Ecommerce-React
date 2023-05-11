@@ -1,8 +1,5 @@
-import React, {useState} from 'react'
-import {getFirestore} from '../../firebase/config'
-import 'firebase/firestore'
-import Swal from 'sweetalert2'
-import {Card, Button} from 'react-bootstrap'
+import React from 'react'
+import {Card} from 'react-bootstrap'
 
 function Order({description, image, price, counter}) {
   return (

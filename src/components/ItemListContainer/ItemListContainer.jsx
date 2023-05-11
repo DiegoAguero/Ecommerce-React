@@ -33,7 +33,6 @@ function ItemListContainer() {
           const newItem = res.docs.map((doc) => {
             return { id: doc.id, ...doc.data() };
           });
-          console.table(newItem);
           setItems(newItem);
         })
         .catch((error) => console.log(error))
